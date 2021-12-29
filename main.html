@@ -1,0 +1,521 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" /> 
+    <link href="css/pro.css" rel="stylesheet" type="text/css">
+    <title>Lead Me</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript" text="javascript"></script>
+    <script src="js/flow1.js" type="text/javascript" text="javascript"></script>
+    <script src="js/flow2.js" type="text/javascript" text="javascript"></script>
+    <!-- <script src="./flow3.js" type="text/javascript" text="javascript"></script> -->
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyciDGgemxc0xEOtScgB3gOEeYQbFCzHg&callback=initMap&v=weekly&channel=2"
+    async
+    ></script>
+    <!-- use AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg for local testing-->
+
+
+
+</head>
+<body>
+    <div id="wrap">
+        <!-- header -->
+        <div id="header_wrap_map" class="clearfix">
+            <header>
+                <div id="logo">
+                    <h1><a href="#">Lead&nbsp;Me</a></h1>
+                </div>
+            </header>
+
+            <nav>
+                <ul class="clearfix">
+                                        <li><a href="#"><h2>TesterRFA2 </h2></a></li>
+                                        <li><a href="#"><span id="menu_btn"><img src="../icon/menu.png" alt="menu" /></span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="menu_box">
+            <div id="box_wrap">
+                
+                <div>
+                    <a href="#"><h5>Lead Me</h5></a>
+                    <a href="#"><h5>Lead Me</h5></a>
+                    <a href="#"><h5>Lead Me</h5></a>
+                    <a href="#"><h5>Lead Me</h5></a>
+                    <a href="#"><h5>Lead Me</h5></a>
+                </div>
+                <div id="copy">
+                    <span>Copyright @ Lead Me</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- header -->
+
+
+        <!-- side menu -->
+        <div id="side_menu">
+            <ul id="side_btn">
+            <li title="계정관리" class="icon-contacts">
+                <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ1Ni4zNjggNDU2LjM2OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDU2LjM2OCA0NTYuMzY4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPGc+DQoJCQk8cGF0aCBkPSJNMzI0LjE5NCwyMjAuNTI2Yy02LjE3Miw3Ljc3Mi0xMy4xMDYsMTQuOTQ3LTIxLjA3LDIxLjQyM2M0NS40NTksMjYuMDc2LDc2LjE0OSw3NS4xLDc2LjE0OSwxMzEuMTU4DQoJCQkJYzAsMzAuMjktNjYuMzY3LDU0LjAxOC0xNTEuMDksNTQuMDE4cy0xNTEuMDktMjMuNzI4LTE1MS4wOS01NC4wMThjMC01Ni4wNTgsMzAuNjktMTA1LjA4Miw3Ni4xNDktMTMxLjE1OA0KCQkJCWMtNy45NjMtNi40NzYtMTQuODk3LTEzLjY1LTIxLjA3LTIxLjQyM2MtNTAuNjI0LDMxLjk2OS04NC4zMjIsODguNDEtODQuMzIyLDE1Mi41ODFjMCwxOS40MzksMTAuNjQ0LDQ2LjUzLDYxLjM1NSw2NS4yMDENCgkJCQljMzEuNjMyLDExLjY0Nyw3My44ODYsMTguMDYsMTE4Ljk3OSwxOC4wNmM0NS4wOTMsMCw4Ny4zNDctNi40MTMsMTE4Ljk3OS0xOC4wNmM1MC43MS0xOC42NzEsNjEuMzU1LTQ1Ljc2Miw2MS4zNTUtNjUuMjAxDQoJCQkJQzQwOC41MTYsMzA4LjkzNiwzNzQuODE4LDI1Mi40OTUsMzI0LjE5NCwyMjAuNTI2eiIvPg0KCQkJPHBhdGggZD0iTTIyOC4xODIsMjM5Ljc5NWM1Ni44MzMsMCwxMDAuNTk3LTU0LjkzNiwxMDAuNTk3LTExOS44OTdDMzI4Ljc3OSw1NC45MDcsMjg0Ljk5MywwLDIyOC4xODIsMA0KCQkJCWMtNTYuODMzLDAtMTAwLjU5Nyw1NC45MzYtMTAwLjU5NywxMTkuODk3QzEyNy41ODUsMTg0Ljg4OCwxNzEuMzcyLDIzOS43OTUsMjI4LjE4MiwyMzkuNzk1eiBNMjI4LjE4MiwyOS4yNDMNCgkJCQljMzkuMzQ0LDAsNzEuMzU0LDQwLjY2Nyw3MS4zNTQsOTAuNjU0cy0zMi4wMSw5MC42NTQtNzEuMzU0LDkwLjY1NHMtNzEuMzU0LTQwLjY2Ny03MS4zNTQtOTAuNjU0UzE4OC44MzgsMjkuMjQzLDIyOC4xODIsMjkuMjQzDQoJCQkJeiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" /> -->
+                <span>계정관리</span>
+            </li>
+            <li title="경로설정" class="icon-map">
+                <!-- <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0yNTYsMEMxNTYuNzQ4LDAsNzYsODAuNzQ4LDc2LDE4MGMwLDMzLjUzNCw5LjI4OSw2Ni4yNiwyNi44NjksOTQuNjUybDE0Mi44ODUsMjMwLjI1Nw0KCQkJYzIuNzM3LDQuNDExLDcuNTU5LDcuMDkxLDEyLjc0NSw3LjA5MWMwLjA0LDAsMC4wNzksMCwwLjExOSwwYzUuMjMxLTAuMDQxLDEwLjA2My0yLjgwNCwxMi43NS03LjI5Mkw0MTAuNjExLDI3Mi4yMg0KCQkJQzQyNy4yMjEsMjQ0LjQyOCw0MzYsMjEyLjUzOSw0MzYsMTgwQzQzNiw4MC43NDgsMzU1LjI1MiwwLDI1NiwweiBNMzg0Ljg2NiwyNTYuODE4TDI1OC4yNzIsNDY4LjE4NmwtMTI5LjkwNS0yMDkuMzQNCgkJCUMxMTMuNzM0LDIzNS4yMTQsMTA1LjgsMjA3Ljk1LDEwNS44LDE4MGMwLTgyLjcxLDY3LjQ5LTE1MC4yLDE1MC4yLTE1MC4yUzQwNi4xLDk3LjI5LDQwNi4xLDE4MA0KCQkJQzQwNi4xLDIwNy4xMjEsMzk4LjY4OSwyMzMuNjg4LDM4NC44NjYsMjU2LjgxOHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTI1Niw5MGMtNDkuNjI2LDAtOTAsNDAuMzc0LTkwLDkwYzAsNDkuMzA5LDM5LjcxNyw5MCw5MCw5MGM1MC45MDMsMCw5MC00MS4yMzMsOTAtOTBDMzQ2LDEzMC4zNzQsMzA1LjYyNiw5MCwyNTYsOTB6DQoJCQkgTTI1NiwyNDAuMmMtMzMuMjU3LDAtNjAuMi0yNy4wMzMtNjAuMi02MC4yYzAtMzMuMDg0LDI3LjExNi02MC4yLDYwLjItNjAuMnM2MC4xLDI3LjExNiw2MC4xLDYwLjINCgkJCUMzMTYuMSwyMTIuNjgzLDI4OS43ODQsMjQwLjIsMjU2LDI0MC4yeiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" /> -->
+                <span>경로설정</span>
+            </li>
+            <li title="경로비교">
+                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTExLjk5OSA1MTEuOTk5IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTEuOTk5IDUxMS45OTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNOTEuMjE5LDI3OS41NjZjLTIwLjQ1MywwLTQwLjUwOCw3LjAwOC01Ni40NzEsMTkuNzM0Yy0zLjIyOSwyLjU3NS0zLjc1OSw3LjI4MS0xLjE4NSwxMC41MQ0KCQkJYzIuNTc1LDMuMjI5LDcuMjc5LDMuNzYxLDEwLjUxLDEuMTg2YzEzLjUxNy0xMC43NzcsMjkuODE5LTE2LjQ3Myw0Ny4xNDUtMTYuNDczYzQxLjczNiwwLDc1LjY5LDMzLjk1NCw3NS42OSw3NS42OQ0KCQkJYzAsNTYuMjA5LTU4LjY3LDExMC4xNTctNzUuNjkzLDEyNC42MjNjLTE3LjAzNC0xNC40NTUtNzUuNjg3LTY4LjMzMS03NS42ODctMTI0LjYyM2MwLTEzLjYxNSwzLjY1My0yNi45NiwxMC41NjUtMzguNTk1DQoJCQljMi4xMDktMy41NTEsMC45NC04LjEzOS0yLjYxMS0xMC4yNDljLTMuNTUxLTIuMTEtOC4xMzktMC45NC0xMC4yNDksMi42MTFDNC45NSwzMzcuOTI0LDAuNTcyLDM1My45MTMsMC41NzIsMzcwLjIxNA0KCQkJYzAsNzIuNzgxLDgyLjU1NywxMzcuNTAyLDg2LjA3MiwxNDAuMjIxYzEuMzQ4LDEuMDQzLDIuOTYzLDEuNTY0LDQuNTc3LDEuNTY0YzEuNjE0LDAsMy4yMjktMC41MjIsNC41NzctMS41NjQNCgkJCWMzLjUxNC0yLjcxOSw4Ni4wNzEtNjcuNDQsODYuMDcxLTE0MC4yMjFDMTgxLjg2NywzMjAuMjMyLDE0MS4yMDMsMjc5LjU2Niw5MS4yMTksMjc5LjU2NnoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTkxLjIxOCwzMjkuNTY0Yy0yMi40MTUsMC00MC42NTEsMTguMjM2LTQwLjY1MSw0MC42NTFzMTguMjM2LDQwLjY1Miw0MC42NTEsNDAuNjUyDQoJCQljMjIuNDE2LTAuMDAxLDQwLjY1Mi0xOC4yMzcsNDAuNjUyLTQwLjY1MkMxMzEuODcsMzQ3LjgsMTEzLjYzNCwzMjkuNTY0LDkxLjIxOCwzMjkuNTY0eiBNOTEuMjE5LDM5NS45MDkNCgkJCWMtMTQuMTY3LTAuMDAxLTI1LjY5My0xMS41MjctMjUuNjkzLTI1LjY5NGMwLTE0LjE2NywxMS41MjYtMjUuNjkzLDI1LjY5My0yNS42OTNzMjUuNjk0LDExLjUyNiwyNS42OTQsMjUuNjkzDQoJCQlTMTA1LjM4NiwzOTUuOTA5LDkxLjIxOSwzOTUuOTA5eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNNDI1LjA5LDExMS42NTJjLTQ3LjYwNywwLTg2LjMzOCwzOC43MzEtODYuMzM4LDg2LjMzOGMwLDI5LjMwOCwxMy44NTMsNjAuNzE0LDQxLjE3NCw5My4zNDQNCgkJCWMyMC4wMDQsMjMuODkxLDM5Ljc1NSwzOS4yNzIsNDAuNTg3LDM5LjkxNmMxLjM0OCwxLjA0MywyLjk2MywxLjU2NCw0LjU3NywxLjU2NHMzLjIyOS0wLjUyMiw0LjU3Ny0xLjU2NA0KCQkJYzEuMDI5LTAuNzk3LDI1LjQ1NS0xOS44MzIsNDcuNDYtNDguNDc5YzIuNTE1LTMuMjc1LDEuOS03Ljk3MS0xLjM3Ni0xMC40ODdjLTMuMjc3LTIuNTE2LTcuOTctMS44OTktMTAuNDg3LDEuMzc2DQoJCQljLTE1LjMwOSwxOS45MzEtMzIuMjMxLDM1LjI0LTQwLjE2OCw0MS45ODZjLTE2LjQyMy0xMy45OTYtNzEuMzg2LTY0Ljc5Ny03MS4zODYtMTE3LjY1N2MwLTM5LjM1OSwzMi4wMjEtNzEuMzgsNzEuMzgtNzEuMzgNCgkJCWMzOS4zNTksMCw3MS4zOCwzMi4wMjEsNzEuMzgsNzEuMzhjMCwxNi4wNDctNS4xMDgsMzMuMzc0LTE1LjE4LDUxLjUwMmMtMi4wMDYsMy42MS0wLjcwNiw4LjE2NCwyLjkwNSwxMC4xNjkNCgkJCWMzLjYwOSwyLjAwNyw4LjE2NSwwLjcwNSwxMC4xNjktMi45MDVjMTEuMzIyLTIwLjM3NywxNy4wNjMtNDAuMTQ5LDE3LjA2My01OC43NjgNCgkJCUM1MTEuNDI4LDE1MC4zODMsNDcyLjY5NywxMTEuNjUyLDQyNS4wOSwxMTEuNjUyeiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNNDI1LjA5LDE1OS4wNThjLTIxLjQ2NywwLTM4LjkzMSwxNy40NjUtMzguOTMxLDM4LjkzMWMwLDIxLjQ2NywxNy40NjUsMzguOTMxLDM4LjkzMSwzOC45MzENCgkJCXMzOC45MzEtMTcuNDY1LDM4LjkzMS0zOC45MzFDNDY0LjAyMSwxNzYuNTIzLDQ0Ni41NTYsMTU5LjA1OCw0MjUuMDksMTU5LjA1OHogTTQyNS4wOSwyMjEuOTYzDQoJCQljLTEzLjIxOSwwLTIzLjk3NC0xMC43NTUtMjMuOTc0LTIzLjk3NGMwLTEzLjIxOSwxMC43NTUtMjMuOTc0LDIzLjk3NC0yMy45NzRzMjMuOTc0LDEwLjc1NSwyMy45NzQsMjMuOTc0DQoJCQlDNDQ5LjA2MywyMTEuMjA5LDQzOC4zMDgsMjIxLjk2Myw0MjUuMDksMjIxLjk2M3oiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTExNy4wODksNDMuMTgxYy0xOS45MjIsMC0zNi4xMjgsMTYuMjA3LTM2LjEyOCwzNi4xMjlzMTYuMjA3LDM2LjEyOCwzNi4xMjgsMzYuMTI4DQoJCQljMTkuOTIxLDAuMDAxLDM2LjEyOC0xNi4yMDYsMzYuMTI4LTM2LjEyOFMxMzcuMDA5LDQzLjE4MSwxMTcuMDg5LDQzLjE4MXogTTExNy4wODcsMTAwLjQ4MQ0KCQkJYy0xMS42NzIsMC4wMDEtMjEuMTctOS40OTctMjEuMTctMjEuMTdzOS40OTctMjEuMTcxLDIxLjE3LTIxLjE3MWMxMS42NzMsMCwyMS4xNyw5LjQ5NywyMS4xNywyMS4xNzENCgkJCUMxMzguMjU4LDkwLjk4NCwxMjguNzYxLDEwMC40ODEsMTE3LjA4NywxMDAuNDgxeiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMTE3LjA4OSwwYy00My43MzIsMC03OS4zMSwzNS41NzktNzkuMzEsNzkuMzExYzAsMTMuNjk0LDMuMzk4LDI4LjEzMSwxMC4xMDEsNDIuOTA5DQoJCQljMS43MDUsMy43NjIsNi4xMzcsNS40MzMsOS44OTksMy43MjNjMy43NjEtMS43MDUsNS40MjgtNi4xMzgsMy43MjItOS45Yy01LjgxNi0xMi44MjQtOC43NjQtMjUuMTgzLTguNzY0LTM2LjczMg0KCQkJYzAuMDAxLTM1LjQ4NCwyOC44NjktNjQuMzUzLDY0LjM1My02NC4zNTNzNjQuMzUzLDI4Ljg2OSw2NC4zNTMsNjQuMzUzYzAsNDcuNDIzLTQ4Ljk1OCw5My4xMDMtNjQuMzU4LDEwNi4yOTcNCgkJCWMtOC4zMDctNy4xMDItMjYuMzU5LTIzLjYyMi00MS4xOS00NC43NTJjLTIuMzczLTMuMzgxLTcuMDM3LTQuMTk3LTEwLjQxOC0xLjgyNWMtMy4zODIsMi4zNzMtNC4xOTgsNy4wMzgtMS44MjUsMTAuNDE4DQoJCQljMjEuMjE1LDMwLjIyNCw0Ny43NDIsNTAuOTEsNDguODYsNTEuNzc1YzEuMzQ4LDEuMDQzLDIuOTYzLDEuNTY0LDQuNTc3LDEuNTY0czMuMjI5LTAuNTIxLDQuNTc3LTEuNTY0DQoJCQljMC43Ni0wLjU4OCwxOC44MDYtMTQuNjQyLDM3LjA3NC0zNi40NTdjMjQuOTkxLTI5Ljg0NywzNy42NjEtNTguNTk4LDM3LjY2MS04NS40NTRDMTk2LjM5OSwzNS41NzksMTYwLjgyLDAsMTE3LjA4OSwweiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMjE3Ljc0MSwyMzUuNTA3bC05LjEzNi0zLjk5NWMtMy43ODctMS42NTUtOC4xOTUsMC4wNzQtOS44NDksMy44NTZjLTEuNjU0LDMuNzg1LDAuMDcyLDguMTk1LDMuODU2LDkuODQ5bDkuMTM2LDMuOTk1DQoJCQljMC45NzYsMC40MjcsMS45OTIsMC42MjgsMi45OTMsMC42MjhjMi44ODEsMCw1LjYyNy0xLjY3Niw2Ljg1Ny00LjQ4NEMyMjMuMjUyLDI0MS41NzEsMjIxLjUyNiwyMzcuMTYyLDIxNy43NDEsMjM1LjUwN3oiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM2My45MzQsMjk5LjQxNGwtOS4xMzYtMy45OTVjLTMuNzg3LTEuNjU0LTguMTk0LDAuMDcyLTkuODQ5LDMuODU2Yy0xLjY1NCwzLjc4NSwwLjA3Miw4LjE5NSwzLjg1Niw5Ljg0OWw5LjEzNiwzLjk5NQ0KCQkJYzAuOTc2LDAuNDI3LDEuOTkyLDAuNjI4LDIuOTkzLDAuNjI4YzIuODgyLDAsNS42MjktMS42NzUsNi44NTctNC40ODRDMzY5LjQ0NCwzMDUuNDc4LDM2Ny43MTgsMzAxLjA2OSwzNjMuOTM0LDI5OS40MTR6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xODEuMTkyLDIxOS41M2wtOS4xMzctMy45OTRjLTMuNzg5LTEuNjU0LTguMTk0LDAuMDczLTkuODQ4LDMuODU3Yy0xLjY1NCwzLjc4NSwwLjA3Myw4LjE5NSwzLjg1Nyw5Ljg0OGw5LjEzNywzLjk5NA0KCQkJYzAuOTc2LDAuNDI3LDEuOTkxLDAuNjI4LDIuOTkyLDAuNjI4YzIuODgzLDAsNS42MjktMS42NzYsNi44NTctNC40ODVDMTg2LjcwNCwyMjUuNTkyLDE4NC45NzYsMjIxLjE4NCwxODEuMTkyLDIxOS41M3oiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTE0NC42NDQsMjAzLjU1M2wtOS4xMzctMy45OTRjLTMuNzg5LTEuNjU1LTguMTk1LDAuMDczLTkuODQ4LDMuODU3Yy0xLjY1NCwzLjc4NSwwLjA3Myw4LjE5NSwzLjg1Nyw5Ljg0OGw5LjEzNywzLjk5NA0KCQkJYzAuOTc2LDAuNDI3LDEuOTkxLDAuNjI4LDIuOTkyLDAuNjI4YzIuODgzLDAsNS42MjktMS42NzYsNi44NTctNC40ODVDMTUwLjE1NSwyMDkuNjE2LDE0OC40MjgsMjA1LjIwNiwxNDQuNjQ0LDIwMy41NTN6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00MDAuNDgyLDMxNS4zOWwtOS4xMzctMy45OTVjLTMuNzgyLTEuNjU0LTguMTk0LDAuMDczLTkuODQ4LDMuODU3czAuMDcyLDguMTk0LDMuODU3LDkuODQ4bDkuMTM3LDMuOTk1DQoJCQljMC45NzUsMC40MjcsMS45OTEsMC42MjgsMi45OTIsMC42MjhjMi44ODEsMCw1LjYyOC0xLjY3NSw2Ljg1Ny00LjQ4NUM0MDUuOTkzLDMyMS40NTQsNDA0LjI2NywzMTcuMDQ1LDQwMC40ODIsMzE1LjM5eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMzI3LjM4NiwyODMuNDM2bC05LjEzNy0zLjk5NGMtMy43ODgtMS42NTUtOC4xOTUsMC4wNzMtOS44NDgsMy44NTdjLTEuNjU0LDMuNzg1LDAuMDczLDguMTk1LDMuODU3LDkuODQ4bDkuMTM3LDMuOTk0DQoJCQljMC45NzUsMC40MjcsMS45OTEsMC42MjgsMi45OTIsMC42MjhjMi44ODIsMCw1LjYyOC0xLjY3NSw2Ljg1Ny00LjQ4NUMzMzIuODk3LDI4OS40OTksMzMxLjE3LDI4NS4wOSwzMjcuMzg2LDI4My40MzZ6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0yOTAuODM2LDI2Ny40NmwtOS4xMzctMy45OTRjLTMuNzg4LTEuNjU1LTguMTk1LDAuMDczLTkuODQ4LDMuODU3Yy0xLjY1NCwzLjc4NSwwLjA3Myw4LjE5NSwzLjg1Nyw5Ljg0OGw5LjEzNywzLjk5NA0KCQkJYzAuOTc2LDAuNDI3LDEuOTkxLDAuNjI4LDIuOTkyLDAuNjI4YzIuODgzLDAsNS42MjktMS42NzYsNi44NTctNC40ODVDMjk2LjM0OCwyNzMuNTIzLDI5NC42MjEsMjY5LjExNCwyOTAuODM2LDI2Ny40NnoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTI1NC4yODgsMjUxLjQ4M2wtOS4xMzctMy45OTVjLTMuNzgzLTEuNjU1LTguMTk0LDAuMDczLTkuODQ4LDMuODU3czAuMDcyLDguMTk0LDMuODU3LDkuODQ4bDkuMTM3LDMuOTk1DQoJCQljMC45NzQsMC40MjcsMS45OTEsMC42MjgsMi45OTIsMC42MjhjMi44ODIsMCw1LjYyOS0xLjY3NSw2Ljg1Ny00LjQ4NUMyNTkuOCwyNTcuNTQ3LDI1OC4wNzQsMjUzLjEzOCwyNTQuMjg4LDI1MS40ODN6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xMzYuNDAyLDQ5MS4wNjZjLTEuOTQzLTMuNjQ1LTYuNDcyLTUuMDI3LTEwLjExOC0zLjA4NGwtOC44LDQuNjljLTMuNjQ1LDEuOTQzLTUuMDI1LDYuNDczLTMuMDgzLDEwLjExOQ0KCQkJYzEuMzQ2LDIuNTI1LDMuOTMyLDMuOTY0LDYuNjA3LDMuOTY0YzEuMTg2LDAsMi4zOS0wLjI4MywzLjUxMS0wLjg4MWw4LjgtNC42OUMxMzYuOTY0LDQ5OS4yNDEsMTM4LjM0NCw0OTQuNzExLDEzNi40MDIsNDkxLjA2NnoNCgkJCSIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMTcxLjYwMSw0NzIuMzA0Yy0xLjk0Mi0zLjY0NS02LjQ3Mi01LjAyNS0xMC4xMTgtMy4wODNsLTguOCw0LjY5Yy0zLjY0NSwxLjk0My01LjAyNSw2LjQ3My0zLjA4MywxMC4xMTgNCgkJCWMxLjM0NiwyLjUyNSwzLjkzMiwzLjk2NCw2LjYwNywzLjk2NGMxLjE4NiwwLDIuMzktMC4yODMsMy41MS0wLjg4bDguOC00LjY5QzE3Mi4xNjIsNDgwLjQ3OSwxNzMuNTQzLDQ3NS45NDgsMTcxLjYwMSw0NzIuMzA0eiINCgkJCS8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0yMDYuOCw0NTMuNTQ0Yy0xLjk0Mi0zLjY0Ny02LjQ3MS01LjAyOC0xMC4xMTctMy4wODRsLTguOCw0LjY5Yy0zLjY0NSwxLjk0My01LjAyNSw2LjQ3My0zLjA4MywxMC4xMTkNCgkJCWMxLjM0NiwyLjUyNSwzLjkzMiwzLjk2NCw2LjYwNywzLjk2NGMxLjE4NiwwLDIuMzktMC4yODMsMy41MS0wLjg4bDguOC00LjY5QzIwNy4zNjEsNDYxLjcxOSwyMDguNzQyLDQ1Ny4xODgsMjA2LjgsNDUzLjU0NHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM4Mi44MDEsMzU5LjczNGMtMS45NDItMy42NDYtNi40NzItNS4wMjYtMTAuMTE5LTMuMDgzbC04LjgsNC42OWMtMy42NDUsMS45NDMtNS4wMjUsNi40NzMtMy4wODMsMTAuMTE5DQoJCQljMS4zNDYsMi41MjUsMy45MzIsMy45NjQsNi42MDcsMy45NjRjMS4xODYsMCwyLjM5LTAuMjgzLDMuNTExLTAuODhsOC44LTQuNjlDMzgzLjM2MiwzNjcuOTEsMzg0Ljc0MiwzNjMuMzc5LDM4Mi44MDEsMzU5LjczNHoiDQoJCQkvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNNDE4LjAwMSwzNDAuOTczYy0xLjk0NC0zLjY0Ni02LjQ3Mi01LjAyNi0xMC4xMTktMy4wODRsLTguOCw0LjY5Yy0zLjY0NSwxLjk0My01LjAyNSw2LjQ3My0zLjA4MywxMC4xMTkNCgkJCWMxLjM0NiwyLjUyNSwzLjkzMiwzLjk2NCw2LjYwNywzLjk2NGMxLjE4NiwwLDIuMzktMC4yODMsMy41MTEtMC44ODFsOC44LTQuNjlDNDE4LjU2MiwzNDkuMTQ4LDQxOS45NDIsMzQ0LjYxOCw0MTguMDAxLDM0MC45NzN6DQoJCQkiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM0Ny41OTksMzc4LjQ5NmMtMS45NDItMy42NDctNi40NzItNS4wMjktMTAuMTE3LTMuMDgybC04Ljc5OSw0LjY5Yy0zLjY0NSwxLjk0My01LjAyNSw2LjQ3Mi0zLjA4MiwxMC4xMTcNCgkJCWMxLjM0NSwyLjUyNSwzLjkzMiwzLjk2NCw2LjYwNiwzLjk2NGMxLjE4NiwwLDIuMzktMC4yODMsMy41MS0wLjg4Mmw4Ljc5OS00LjY5QzM0OC4xNjEsMzg2LjY3MiwzNDkuNTQxLDM4Mi4xNDIsMzQ3LjU5OSwzNzguNDk2DQoJCQl6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0yNDIsNDM0Ljc4Yy0xLjk0Mi0zLjY0NC02LjQ3MS01LjAyNi0xMC4xMTgtMy4wODNsLTguOCw0LjY5Yy0zLjY0NSwxLjk0My01LjAyNSw2LjQ3My0zLjA4MywxMC4xMTcNCgkJCWMxLjM0NiwyLjUyNSwzLjkzMiwzLjk2NCw2LjYwNywzLjk2NGMxLjE4NiwwLDIuMzktMC4yODMsMy41MS0wLjg4bDguOC00LjY5QzI0Mi41NjEsNDQyLjk1NSwyNDMuOTQxLDQzOC40MjUsMjQyLDQzNC43OHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTMxMi40LDM5Ny4yNTdjLTEuOTQyLTMuNjQ1LTYuNDc0LTUuMDI4LTEwLjExNy0zLjA4MmwtOC43OTksNC42OWMtMy42NDUsMS45NDMtNS4wMjUsNi40NzItMy4wODIsMTAuMTE3DQoJCQljMS4zNDUsMi41MjUsMy45MzIsMy45NjQsNi42MDYsMy45NjRjMS4xODcsMCwyLjM5MS0wLjI4MywzLjUxMS0wLjg4Mmw4Ljc5OS00LjY5QzMxMi45NjIsNDA1LjQzMiwzMTQuMzQyLDQwMC45MDMsMzEyLjQsMzk3LjI1Nw0KCQkJeiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMjc3LjIsNDE2LjAyYy0xLjk0My0zLjY0Ny02LjQ3NC01LjAzLTEwLjExOC0zLjA4M2wtOC43OTksNC42OWMtMy42NDUsMS45NDMtNS4wMjUsNi40NzItMy4wODIsMTAuMTE3DQoJCQljMS4zNDUsMi41MjUsMy45MzIsMy45NjMsNi42MDYsMy45NjNjMS4xODcsMCwyLjM5MS0wLjI4MiwzLjUxMS0wLjg4MWw4Ljc5OS00LjY5QzI3Ny43NjIsNDI0LjE5NCwyNzkuMTQyLDQxOS42NjUsMjc3LjIsNDE2LjAyeg0KCQkJIi8+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
+            </li>
+            <li title="설정">
+                <img src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTEyIDUxMiIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0yNzIuMDY2IDUxMmgtMzIuMTMzYy0yNS45ODkgMC00Ny4xMzQtMjEuMTQ0LTQ3LjEzNC00Ny4xMzN2LTEwLjg3MWMtMTEuMDQ5LTMuNTMtMjEuNzg0LTcuOTg2LTMyLjA5Ny0xMy4zMjNsLTcuNzA0IDcuNzA0Yy0xOC42NTkgMTguNjgyLTQ4LjU0OCAxOC4xMzQtNjYuNjY1LS4wMDdsLTIyLjcxMS0yMi43MWMtMTguMTQ5LTE4LjEyOS0xOC42NzEtNDguMDA4LjAwNi02Ni42NjVsNy42OTgtNy42OThjLTUuMzM3LTEwLjMxMy05Ljc5Mi0yMS4wNDYtMTMuMzIzLTMyLjA5N2gtMTAuODdjLTI1Ljk4OCAwLTQ3LjEzMy0yMS4xNDQtNDcuMTMzLTQ3LjEzM3YtMzIuMTM0YzAtMjUuOTg5IDIxLjE0NS00Ny4xMzMgNDcuMTM0LTQ3LjEzM2gxMC44N2MzLjUzMS0xMS4wNSA3Ljk4Ni0yMS43ODQgMTMuMzIzLTMyLjA5N2wtNy43MDQtNy43MDNjLTE4LjY2Ni0xOC42NDYtMTguMTUxLTQ4LjUyOC4wMDYtNjYuNjY1bDIyLjcxMy0yMi43MTJjMTguMTU5LTE4LjE4NCA0OC4wNDEtMTguNjM4IDY2LjY2NC4wMDZsNy42OTcgNy42OTdjMTAuMzEzLTUuMzM2IDIxLjA0OC05Ljc5MiAzMi4wOTctMTMuMzIzdi0xMC44N2MwLTI1Ljk4OSAyMS4xNDQtNDcuMTMzIDQ3LjEzNC00Ny4xMzNoMzIuMTMzYzI1Ljk4OSAwIDQ3LjEzMyAyMS4xNDQgNDcuMTMzIDQ3LjEzM3YxMC44NzFjMTEuMDQ5IDMuNTMgMjEuNzg0IDcuOTg2IDMyLjA5NyAxMy4zMjNsNy43MDQtNy43MDRjMTguNjU5LTE4LjY4MiA0OC41NDgtMTguMTM0IDY2LjY2NS4wMDdsMjIuNzExIDIyLjcxYzE4LjE0OSAxOC4xMjkgMTguNjcxIDQ4LjAwOC0uMDA2IDY2LjY2NWwtNy42OTggNy42OThjNS4zMzcgMTAuMzEzIDkuNzkyIDIxLjA0NiAxMy4zMjMgMzIuMDk3aDEwLjg3YzI1Ljk4OSAwIDQ3LjEzNCAyMS4xNDQgNDcuMTM0IDQ3LjEzM3YzMi4xMzRjMCAyNS45ODktMjEuMTQ1IDQ3LjEzMy00Ny4xMzQgNDcuMTMzaC0xMC44N2MtMy41MzEgMTEuMDUtNy45ODYgMjEuNzg0LTEzLjMyMyAzMi4wOTdsNy43MDQgNy43MDRjMTguNjY2IDE4LjY0NiAxOC4xNTEgNDguNTI4LS4wMDYgNjYuNjY1bC0yMi43MTMgMjIuNzEyYy0xOC4xNTkgMTguMTg0LTQ4LjA0MSAxOC42MzgtNjYuNjY0LS4wMDZsLTcuNjk3LTcuNjk3Yy0xMC4zMTMgNS4zMzYtMjEuMDQ4IDkuNzkyLTMyLjA5NyAxMy4zMjN2MTAuODcxYzAgMjUuOTg3LTIxLjE0NCA0Ny4xMzEtNDcuMTM0IDQ3LjEzMXptLTEwNi4zNDktMTAyLjgzYzE0LjMyNyA4LjQ3MyAyOS43NDcgMTQuODc0IDQ1LjgzMSAxOS4wMjUgNi42MjQgMS43MDkgMTEuMjUyIDcuNjgzIDExLjI1MiAxNC41MjR2MjIuMTQ4YzAgOS40NDcgNy42ODcgMTcuMTMzIDE3LjEzNCAxNy4xMzNoMzIuMTMzYzkuNDQ3IDAgMTcuMTM0LTcuNjg2IDE3LjEzNC0xNy4xMzN2LTIyLjE0OGMwLTYuODQxIDQuNjI4LTEyLjgxNSAxMS4yNTItMTQuNTI0IDE2LjA4NC00LjE1MSAzMS41MDQtMTAuNTUyIDQ1LjgzMS0xOS4wMjUgNS44OTUtMy40ODYgMTMuNC0yLjUzOCAxOC4yNDMgMi4zMDVsMTUuNjg4IDE1LjY4OWM2Ljc2NCA2Ljc3MiAxNy42MjYgNi42MTUgMjQuMjI0LjAwN2wyMi43MjctMjIuNzI2YzYuNTgyLTYuNTc0IDYuODAyLTE3LjQzOC4wMDYtMjQuMjI1bC0xNS42OTUtMTUuNjk1Yy00Ljg0Mi00Ljg0Mi01Ljc5LTEyLjM0OC0yLjMwNS0xOC4yNDIgOC40NzMtMTQuMzI2IDE0Ljg3My0yOS43NDYgMTkuMDI0LTQ1LjgzMSAxLjcxLTYuNjI0IDcuNjg0LTExLjI1MSAxNC41MjQtMTEuMjUxaDIyLjE0N2M5LjQ0NyAwIDE3LjEzNC03LjY4NiAxNy4xMzQtMTcuMTMzdi0zMi4xMzRjMC05LjQ0Ny03LjY4Ny0xNy4xMzMtMTcuMTM0LTE3LjEzM2gtMjIuMTQ3Yy02Ljg0MSAwLTEyLjgxNC00LjYyOC0xNC41MjQtMTEuMjUxLTQuMTUxLTE2LjA4NS0xMC41NTItMzEuNTA1LTE5LjAyNC00NS44MzEtMy40ODUtNS44OTQtMi41MzctMTMuNCAyLjMwNS0xOC4yNDJsMTUuNjg5LTE1LjY4OWM2Ljc4Mi02Ljc3NCA2LjYwNS0xNy42MzQuMDA2LTI0LjIyNWwtMjIuNzI1LTIyLjcyNWMtNi41ODctNi41OTYtMTcuNDUxLTYuNzg5LTI0LjIyNS0uMDA2bC0xNS42OTQgMTUuNjk1Yy00Ljg0MiA0Ljg0My0xMi4zNSA1Ljc5MS0xOC4yNDMgMi4zMDUtMTQuMzI3LTguNDczLTI5Ljc0Ny0xNC44NzQtNDUuODMxLTE5LjAyNS02LjYyNC0xLjcwOS0xMS4yNTItNy42ODMtMTEuMjUyLTE0LjUyNHYtMjIuMTVjMC05LjQ0Ny03LjY4Ny0xNy4xMzMtMTcuMTM0LTE3LjEzM2gtMzIuMTMzYy05LjQ0NyAwLTE3LjEzNCA3LjY4Ni0xNy4xMzQgMTcuMTMzdjIyLjE0OGMwIDYuODQxLTQuNjI4IDEyLjgxNS0xMS4yNTIgMTQuNTI0LTE2LjA4NCA0LjE1MS0zMS41MDQgMTAuNTUyLTQ1LjgzMSAxOS4wMjUtNS44OTYgMy40ODUtMTMuNDAxIDIuNTM3LTE4LjI0My0yLjMwNWwtMTUuNjg4LTE1LjY4OWMtNi43NjQtNi43NzItMTcuNjI3LTYuNjE1LTI0LjIyNC0uMDA3bC0yMi43MjcgMjIuNzI2Yy02LjU4MiA2LjU3NC02LjgwMiAxNy40MzctLjAwNiAyNC4yMjVsMTUuNjk1IDE1LjY5NWM0Ljg0MiA0Ljg0MiA1Ljc5IDEyLjM0OCAyLjMwNSAxOC4yNDItOC40NzMgMTQuMzI2LTE0Ljg3MyAyOS43NDYtMTkuMDI0IDQ1LjgzMS0xLjcxIDYuNjI0LTcuNjg0IDExLjI1MS0xNC41MjQgMTEuMjUxaC0yMi4xNDhjLTkuNDQ3LjAwMS0xNy4xMzQgNy42ODctMTcuMTM0IDE3LjEzNHYzMi4xMzRjMCA5LjQ0NyA3LjY4NyAxNy4xMzMgMTcuMTM0IDE3LjEzM2gyMi4xNDdjNi44NDEgMCAxMi44MTQgNC42MjggMTQuNTI0IDExLjI1MSA0LjE1MSAxNi4wODUgMTAuNTUyIDMxLjUwNSAxOS4wMjQgNDUuODMxIDMuNDg1IDUuODk0IDIuNTM3IDEzLjQtMi4zMDUgMTguMjQybC0xNS42ODkgMTUuNjg5Yy02Ljc4MiA2Ljc3NC02LjYwNSAxNy42MzQtLjAwNiAyNC4yMjVsMjIuNzI1IDIyLjcyNWM2LjU4NyA2LjU5NiAxNy40NTEgNi43ODkgMjQuMjI1LjAwNmwxNS42OTQtMTUuNjk1YzMuNTY4LTMuNTY3IDEwLjk5MS02LjU5NCAxOC4yNDQtMi4zMDR6Ii8+PHBhdGggZD0ibTI1NiAzNjcuNGMtNjEuNDI3IDAtMTExLjQtNDkuOTc0LTExMS40LTExMS40czQ5Ljk3My0xMTEuNCAxMTEuNC0xMTEuNCAxMTEuNCA0OS45NzQgMTExLjQgMTExLjQtNDkuOTczIDExMS40LTExMS40IDExMS40em0wLTE5Mi44Yy00NC44ODUgMC04MS40IDM2LjUxNi04MS40IDgxLjRzMzYuNTE2IDgxLjQgODEuNCA4MS40IDgxLjQtMzYuNTE2IDgxLjQtODEuNC0zNi41MTUtODEuNC04MS40LTgxLjR6Ii8+PC9zdmc+" />
+            </li>
+            </ul>
+        </div>
+
+        <!-- twodepth test -->
+        <div id="side_con">
+            <ul>
+                <li>
+                    <div id="aside_wrap">
+                        <div class="side_wrap">
+                            <div class="title"><h2>계정 관리</h2></div>
+                    
+                            <div id="account_list2">
+                                <h3>계정 목록</h3>
+                                <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="new_subacc_input" />
+                                <button class="btn btn-outline-secondary" type="button" id="add_new_subacc_btn">추가</button>
+                                </div>
+                                <div id="id_list" class="list-group">
+                            
+
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <!-- <div id="under_test">
+                        <div title="계정추가"><span></span></div>
+                        <div title="계정삭제"><span></span></div>
+                        </div> -->
+
+                    </div>
+
+                </li>
+                <li id="map_box">
+                    <div id="aside_wrap">
+                        <div class="side_wrap">
+                            <div class="title"><h2>경로 설정</h2></div>
+                            
+                            <input id="list_group" type="checkbox" />
+                                <label class="on_off" for="list_group" onclick="">
+                                    <div id="account_list" class="on_off"> 
+                                        <span>abcd@abcd.com</span>
+                                    </div>
+                                </label>
+                                <ul class="listing">
+                                    <li class="list_1">adedd@ddadd.com</li>
+                                    <li class="list_2">dddd@ddadd.com</li>
+                                    <li class="list_3">addasdedd@ddadd.com</li>
+                                </ul>
+                            
+
+                            <div id="start">
+                                <div class="subtitle"><h3>출발지</h3></div>
+                                <input type="search" class="place1" id="departure" placeholder="주소"/>
+                                <div class="select_container">
+                                    <select class="select_time">
+                                        <option value="">현재 시각 사용</option>
+                                        <option value="AM">오전</option>
+                                        <option value="PM">오후</option>
+                                    </select>
+                                    <span>
+                                        <select class="select_hour">
+                                            <option value="">시간</option>
+                                            <option value="00" class="hour00am">00</option>
+                                            <option value="00" class="hour00pm">12</option>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                        </select> <b>:</b> 
+                                        <select class="select_minute">
+                                            <option value="">분</option>
+                                            <option value="00">00</option>
+                                            <option value="05">05</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="25">25</option>
+                                            <option value="30">30</option>
+                                            <option value="35">35</option>
+                                            <option value="40">40</option>
+                                            <option value="45">45</option>
+                                            <option value="50">50</option>
+                                            <option value="55">55</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <input type="hidden" class="prev_place1" /><input type="hidden" class="x_coord" /><input type="hidden" class="y_coord" />
+                            </div>
+
+<script>
+$(document).on('change', '.select_time', function() {
+    var val = $(this).val();
+    var select_span = $(this).parent().children('span');
+    var divId = $(this).parent().parent().attr('id');
+    if (val == 'x'){ $(this).parent().remove('.select_container'); turnBack2DefaultMarker(divId); } //$(this).parent().parent().children('span.set_arrival').css({'color':'white'});
+    else if (val == ''){ select_span.hide(); turnBack2DefaultMarker(divId); }
+    else if (val == 'AM'){ select_span.find('.select_hour').val(['']); select_span.find('.hour00am').show(); select_span.find('.hour00pm').hide(); select_span.show(); turn2TSmarker(divId); }
+    else if (val == 'PM'){ select_span.find('.select_hour').val(['']); select_span.find('.hour00pm').show(); select_span.find('.hour00am').hide(); select_span.show(); turn2TSmarker(divId); }
+    else {  } //none for now
+});
+
+function turn2TSmarker(divId){
+    if (!isEmpty(markerDict[divId])){
+        change2Orangemarker(markerDict[divId]);
+    }
+}
+
+function change2Orangemarker(markerObj){
+    //markerObj.setIcon('https://maps.google.com/mapfiles/ms/icons/orange-dot.png');
+    //markerObj.setIcon('https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Bubble-Azure-icon.png');
+    //markerObj.setIcon('https://i.imgur.com/DZMPkKI.png');
+    customIcon = {
+        url: 'https://i.imgur.com/DZMPkKI.png',
+        //size: new google.maps.Size(32, 38),
+        //scaledSize: new google.maps.Size(32, 38),
+        labelOrigin: new google.maps.Point(14, 14)
+   };
+   markerObj.setIcon(customIcon);
+}
+
+function turnBack2DefaultMarker(divId){
+    if (!isEmpty(markerDict[divId])){
+        //markerDict[divId].setIcon(BitmapDescriptorFactory.defaultMarker());
+        markerDict[divId].setIcon();
+    }
+}
+
+$(document).on('click', '.set_arrival', function() {
+    var box_place = $(this).parent().parent(); //.box_place
+    var target_div = box_place.children('.select_container');
+    if (target_div.length){
+        dance(target_div);
+    }else{
+        insertSelectContainer(box_place);
+    }
+});
+
+$(document).on('click', '.set_stay', function() {
+    var box_place = $(this).parent().parent(); //.box_place
+    var target_div = box_place.children('.staytime2');
+    if (target_div.length){
+        dance(target_div);
+    }else{
+        insertStaytime2(box_place.children('.number'));
+    }
+});
+
+$(document).on('click', '.remove_staytime2', function() {
+    //var box_place = $(this).parent().parent().parent(); //.box_place
+    var staytime2 = $(this).parent(); //.staytime2
+    staytime2.remove();
+    //box_place.remove(box_place.children('.staytime2'));
+});
+
+function dance(target){
+    target.css("animation", "shake 0.5s").css("animation-iteration-count", "2.5");
+    setTimeout(function() { //normalize in order to make this replicable
+        target.css("animation", "");
+    }, 2000);
+}
+
+function insertSelectContainer(target_location){
+    var select_container = '<div class="select_container">'+
+                                '<select class="select_time">'+
+                                    '<option value="">도착시각 선택</option>'+
+                                    '<option value="AM">오전</option>'+
+                                    '<option value="PM">오후</option>'+
+                                    '<option value="x">도착시각 지정 안함</option>'+
+                                '</select>'+
+                                '<span>'+
+                                    '<select class="select_hour">'+
+                                        '<option value="">시간</option>'+
+                                        '<option value="00" class="hour00am">00</option>'+
+                                        '<option value="00" class="hour00pm">12</option>'+
+                                        '<option value="01">01</option>'+
+                                        '<option value="02">02</option>'+
+                                        '<option value="03">03</option>'+
+                                        '<option value="04">04</option>'+
+                                        '<option value="05">05</option>'+
+                                        '<option value="06">06</option>'+
+                                        '<option value="07">07</option>'+
+                                        '<option value="08">08</option>'+
+                                        '<option value="09">09</option>'+
+                                        '<option value="10">10</option>'+
+                                        '<option value="11">11</option>'+
+                                    '</select> <b>:</b> '+
+                                    '<select class="select_minute">'+
+                                        '<option value="">분</option>'+
+                                        '<option value="00">00</option>'+
+                                        '<option value="05">05</option>'+
+                                        '<option value="10">10</option>'+
+                                        '<option value="15">15</option>'+
+                                        '<option value="20">20</option>'+
+                                        '<option value="25">25</option>'+
+                                        '<option value="30">30</option>'+
+                                        '<option value="35">35</option>'+
+                                        '<option value="40">40</option>'+
+                                        '<option value="45">45</option>'+
+                                        '<option value="50">50</option>'+
+                                        '<option value="55">55</option>'+
+                                    '</select>'+
+                                '</span>'+
+                            '</div>';
+    target_location.append(select_container);
+}
+
+function insertStaytime2(target_location){
+    var staytime2 = '<div class="staytime2"><span class="remove_staytime2 pointer hidden">x</span> 체류 시간 : <input type="number" class="timenum2" placeholder="0">'+
+                        '<select name="time" class="timesel2">'+
+                            '<option value="1">초</option>'+
+                            '<option value="60">분</option>'+
+                            '<option value="3600">시</option>'+
+                        '</select>'+
+                    '</div>';
+    target_location.after(staytime2);
+}
+
+
+// upon active gone,  geocode(ajax) -> 
+
+
+//서비스 시간 (소모 시간) select 추가!
+
+
+
+//엑셀 추가는 엑셀에 있는 목적지들로 대체 or 기존 목적지 마지막에 추가
+//    마지막에 추가시, 추가된 목적지들이 자동으로 선택된 상태로 만들고
+//    기존(상대적으로 리스트의 위에 위치한)목적지들 중 어디로든 이동해서 끼어넣기 (순서변경) 가능
+//    순서가 변경된 직후에도 해당 목적지들은 선택된 상태
+//      이것을 염두에 두면 순서가 바뀌거나, 새로운 목적지가 추가되거나(끝에 (or 중간에?)), 기존 목적지가 삭제될 때
+//      먼저, dict에 저장된 이전 목적지들에 대한 objs를 지도에서 지우고, 해당 dict의 부분을 삭제
+//      그리고 나서 새로운 경로에 대한 전체 목적지들과 경로의 새로운 objs를 dict에 저장 후 지도에 그리기
+//      (이 경우, 매번 geometry를 request하는 것에 대한 시간과 과부화를 고려할 것)
+//      (장점은 목적지 추가, 삭제, 순서 변경에 대한 모든 경우의 수를 계산하지 않아도 된다.)
+//일단 위 접근법으로 시작하고 이것이 비효율적이라고 판단되는 부분들(예: 새로운 목적지 추가 또는 기존 목적지 삭제)에 대해서는
+//경우의 수를 생각하여 해당 부분만 dict과 지도에 추가, 삭제 또는 조정
+
+
+
+// *** initially, make sure each address item is given an id(destination_id in db) attached to its parent div 
+//      when entering a valid address for the first time of its (new) item ** <- will use the id to communicate with dicts 
+//          and reorder the list after optimization (and still access their objs in dicts? or make new objs?)
+//      but for now, due to time constraint, only set an id using its current (nth) order in the list when **
+//for tomorrow, first assign an id to each sub account and add an item with the id in dicts
+//              then to each 경로 of the sub account, assign an id as well
+//  1. on each focusout (of address) , loop through the entire list to get coords in order
+//     get the pre-existing objs in vars from dicts -!
+//     pinpoints: each time, form a marker object and store it in the marker dict
+//      and form a url with the coords and send a request to get geometry <- decode
+//     routes: *
+//          temp. routes: (to use the same approach as pinpoints in * by dividing segments until the coord of each pinpoint)
+//          but for now, make polyline objs corresponding to the entire set of route coords 
+//          and store them under the id of the 경로 in the route dict
+//      finally draw the markers and polylines by adding them to the map
+//      and remove the pre-existing objs -!
+//(for reference, dict of marker/route[sub account's id][경로 id])
+//
+//  2. when optimization button is clicked, loop through the entire list to get:
+//          id, coord, time stop, service time(default manunal value for now)
+//     then form json with the above values of all the items in order as in the list
+//     ajax call to php, which in turn sends a request to algorithm api
+//     once the output is received, loop through the data and replace the previous list with the new list in the new order
+//          a) make sure each item is given the same id as before so as to access their previously stored, corresponding objs
+//          or
+//          b) (for now but eventually use the a) method) id can be different if objs on the map are removed and recreated
+</script>
+
+                            <div id="place">
+                                <div id="first_box">
+                                <div class="subtitle"><h3>경유지</h3></div>
+                                <div class="staytime">기본 체류 시간 : <input type="number" class="timenum" placeholder="0">
+                                    <select name="time" class="timesel"> 
+                                        <option value="1">초</option>    
+                                        <option value="60">분</option>
+                                        <option value="3600">시</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="box_place">
+                                    <input type="search" class="place2" placeholder="주소" /><span class="more">···</span><span class="m_menu"><span class="set_arrival">도착시각 설정</span><span class="set_stay">체류시간 설정</span><span>즐겨찾기 등록</span><span>삭제</span></span>
+                                    <input type="tel" class="number" placeholder="핸드폰 번호" />
+                                    <input type="text" class="memo" placeholder="메모" />
+                                    <input type="hidden" class="prev_place2" /><input type="hidden" class="x_coord" /><input type="hidden" class="y_coord" />
+                                </div>
+                            </div>
+                        
+                            <div id="add" onclick="add_textbox()"><span>+</span></div>
+
+                            <div id="finish">
+                                <div class="subtitle"><h3>목적지</h3></div>
+                                <input type="search" class="place1" id="arrival" placeholder="주소"/>
+                                <input type="hidden" class="prev_place1" /><input type="hidden" class="x_coord" /><input type="hidden" class="y_coord" />
+                            </div>
+
+                        </div> 
+                        
+                        <div id="info">
+                            <div class="subtitle2"><h4>시간</h4>
+                            <h4>거리</h4>
+                        </div>
+
+
+                        <div id="imp_f">
+                                <h5>최적화</h5>
+                                <div id="imp_menu">
+                                    <div>최소 거리</div>
+                                    <div>최소 시간</div>
+                                </div>
+                        </div>  
+
+                        <div id="under_bar">
+                           <div id="down"><a href="#"><img title="다운로드" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IlNvbGlkIj48cGF0aCBkPSJtMjM5LjAyOSAzODQuOTdhMjQgMjQgMCAwIDAgMzMuOTQyIDBsOTAuNTA5LTkwLjUwOWEyNCAyNCAwIDAgMCAwLTMzLjk0MSAyNCAyNCAwIDAgMCAtMzMuOTQxIDBsLTQ5LjUzOSA0OS41Mzl2LTI2Mi4wNTlhMjQgMjQgMCAwIDAgLTQ4IDB2MjYyLjA1OWwtNDkuNTM5LTQ5LjUzOWEyNCAyNCAwIDAgMCAtMzMuOTQxIDAgMjQgMjQgMCAwIDAgMCAzMy45NDF6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTQ2NCAyMzJhMjQgMjQgMCAwIDAgLTI0IDI0djE4NGgtMzY4di0xODRhMjQgMjQgMCAwIDAgLTQ4IDB2MTkyYTQwIDQwIDAgMCAwIDQwIDQwaDM4NGE0MCA0MCAwIDAgMCA0MC00MHYtMTkyYTI0IDI0IDAgMCAwIC0yNC0yNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" /></a></div>
+                           <div id="open"><a href="#"><img title="불러오기" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgaWQ9IlNvbGlkIj48cGF0aCBkPSJtMTgyLjQ2MSAxNTUuNDggNDkuNTM5LTQ5LjUzOXYyNjIuMDU5YTI0IDI0IDAgMCAwIDQ4IDB2LTI2Mi4wNTlsNDkuNTM5IDQ5LjUzOWEyNCAyNCAwIDEgMCAzMy45NDEtMzMuOTQxbC05MC41MDktOTAuNTFhMjQgMjQgMCAwIDAgLTMzLjk0MiAwbC05MC41MDkgOTAuNTFhMjQgMjQgMCAxIDAgMzMuOTQxIDMzLjk0MXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtNDY0IDIzMmEyNCAyNCAwIDAgMCAtMjQgMjR2MTg0aC0zNjh2LTE4NGEyNCAyNCAwIDAgMCAtNDggMHYxOTJhNDAgNDAgMCAwIDAgNDAgNDBoMzg0YTQwIDQwIDAgMCAwIDQwLTQwdi0xOTJhMjQgMjQgMCAwIDAgLTI0LTI0eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+" /></a>
+                            </div>
+                           <div id="drag"><a href="#"><img title="엑셀 불러오기" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTI4Mi4yMDgsMTkuNjdjLTMuNjQ4LTMuMDA4LTguNDgtNC4yNTYtMTMuMTUyLTMuMzkybC0yNTYsNDhDNS40NzIsNjUuNjg2LDAsNzIuMjc4LDAsNzkuOTl2MzUyICAgIGMwLDcuNjgsNS40NzIsMTQuMzA0LDEzLjA1NiwxNS43MTJsMjU2LDQ4YzAuOTYsMC4xOTIsMS45ODQsMC4yODgsMi45NDQsMC4yODhjMy42OCwwLDcuMzI4LTEuMjgsMTAuMjA4LTMuNjggICAgYzMuNjgtMy4wNCw1Ljc5Mi03LjU4NCw1Ljc5Mi0xMi4zMnYtNDQ4QzI4OCwyNy4yMjIsMjg1Ljg4OCwyMi43MSwyODIuMjA4LDE5LjY3eiBNMjU2LDQ2MC42OTRMMzIsNDE4LjcxVjkzLjI3bDIyNC00MS45ODQgICAgVjQ2MC42OTR6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik00OTYsNzkuOTlIMjcyYy04LjgzMiwwLTE2LDcuMTY4LTE2LDE2YzAsOC44MzIsNy4xNjgsMTYsMTYsMTZoMjA4djI4OEgyNzJjLTguODMyLDAtMTYsNy4xNjgtMTYsMTYgICAgYzAsOC44MzIsNy4xNjgsMTYsMTYsMTZoMjI0YzguODMyLDAsMTYtNy4xNjgsMTYtMTZ2LTMyMEM1MTIsODcuMTU4LDUwNC44MzIsNzkuOTksNDk2LDc5Ljk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzM2LDE0My45OWgtNjRjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmg2NGM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEMzNTIsMTUxLjE1OCwzNDQuODMyLDE0My45OSwzMzYsMTQzLjk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzM2LDIwNy45OWgtNjRjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmg2NGM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEMzNTIsMjE1LjE1OCwzNDQuODMyLDIwNy45OSwzMzYsMjA3Ljk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzM2LDI3MS45OWgtNjRjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmg2NGM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEMzNTIsMjc5LjE1OCwzNDQuODMyLDI3MS45OSwzMzYsMjcxLjk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzM2LDMzNS45OWgtNjRjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmg2NGM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEMzNTIsMzQzLjE1OCwzNDQuODMyLDMzNS45OSwzMzYsMzM1Ljk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDMyLDE0My45OWgtMzJjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmgzMmM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEM0NDgsMTUxLjE1OCw0NDAuODMyLDE0My45OSw0MzIsMTQzLjk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDMyLDIwNy45OWgtMzJjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmgzMmM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEM0NDgsMjE1LjE1OCw0NDAuODMyLDIwNy45OSw0MzIsMjA3Ljk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDMyLDI3MS45OWgtMzJjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmgzMmM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEM0NDgsMjc5LjE1OCw0NDAuODMyLDI3MS45OSw0MzIsMjcxLjk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDMyLDMzNS45OWgtMzJjLTguODMyLDAtMTYsNy4xNjgtMTYsMTZjMCw4LjgzMiw3LjE2OCwxNiwxNiwxNmgzMmM4LjgzMiwwLDE2LTcuMTY4LDE2LTE2ICAgIEM0NDgsMzQzLjE1OCw0NDAuODMyLDMzNS45OSw0MzIsMzM1Ljk5eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMjIwLjA2NCwzMDkuNDYybC0xMTItMTI4Yy01Ljg4OC02LjY4OC0xNS45NjgtNy4zMjgtMjIuNTkyLTEuNTA0Yy02LjY1Niw1LjgyNC03LjMyOCwxNS45MzYtMS41MDQsMjIuNTZsMTEyLDEyOCAgICBjMy4xNjgsMy42MTYsNy41ODQsNS40NzIsMTIuMDMyLDUuNDcyYzMuNzQ0LDAsNy40ODgtMS4zMTIsMTAuNTYtMy45NjhDMjI1LjIxNiwzMjYuMTk4LDIyNS44ODgsMzE2LjExOCwyMjAuMDY0LDMwOS40NjJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0yMTcuODI0LDE2My4zODJjLTYuOTc2LTUuNDcyLTE3LjAyNC00LjE2LTIyLjQ2NCwyLjc4NGwtMTEyLDE0NGMtNS40MDgsNi45NzYtNC4xNiwxNy4wNTYsMi44MTYsMjIuNDY0ICAgIGMyLjk0NCwyLjI3Miw2LjQsMy4zNiw5LjgyNCwzLjM2YzQuNzM2LDAsOS40NzItMi4xMTIsMTIuNjA4LTYuMTQ0bDExMi0xNDRDMjI2LjA0OCwxNzguODM4LDIyNC44LDE2OC43OSwyMTcuODI0LDE2My4zODJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg==" /></div>
+                           <div id="reset"><a href="#"><img title="경로 초기화" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTQyNCA2NGgtODh2LTE2YzAtMjYuNDY3LTIxLjUzMy00OC00OC00OGgtNjRjLTI2LjQ2NyAwLTQ4IDIxLjUzMy00OCA0OHYxNmgtODhjLTIyLjA1NiAwLTQwIDE3Ljk0NC00MCA0MHY1NmMwIDguODM2IDcuMTY0IDE2IDE2IDE2aDguNzQ0bDEzLjgyMyAyOTAuMjgzYzEuMjIxIDI1LjYzNiAyMi4yODEgNDUuNzE3IDQ3Ljk0NSA0NS43MTdoMjQyLjk3NmMyNS42NjUgMCA0Ni43MjUtMjAuMDgxIDQ3Ljk0NS00NS43MTdsMTMuODIzLTI5MC4yODNoOC43NDRjOC44MzYgMCAxNi03LjE2NCAxNi0xNnYtNTZjMC0yMi4wNTYtMTcuOTQ0LTQwLTQwLTQwem0tMjE2LTE2YzAtOC44MjIgNy4xNzgtMTYgMTYtMTZoNjRjOC44MjIgMCAxNiA3LjE3OCAxNiAxNnYxNmgtOTZ6bS0xMjggNTZjMC00LjQxMSAzLjU4OS04IDgtOGgzMzZjNC40MTEgMCA4IDMuNTg5IDggOHY0MGMtNC45MzEgMC0zMzEuNTY3IDAtMzUyIDB6bTMxMy40NjkgMzYwLjc2MWMtLjQwNyA4LjU0NS03LjQyNyAxNS4yMzktMTUuOTgxIDE1LjIzOWgtMjQyLjk3NmMtOC41NTUgMC0xNS41NzUtNi42OTQtMTUuOTgxLTE1LjIzOWwtMTMuNzUxLTI4OC43NjFoMzAyLjQ0eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiI+PC9wYXRoPjxwYXRoIGQ9Im0yNTYgNDQ4YzguODM2IDAgMTYtNy4xNjQgMTYtMTZ2LTIwOGMwLTguODM2LTcuMTY0LTE2LTE2LTE2cy0xNiA3LjE2NC0xNiAxNnYyMDhjMCA4LjgzNiA3LjE2MyAxNiAxNiAxNnoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcGF0aD48cGF0aCBkPSJtMzM2IDQ0OGM4LjgzNiAwIDE2LTcuMTY0IDE2LTE2di0yMDhjMC04LjgzNi03LjE2NC0xNi0xNi0xNnMtMTYgNy4xNjQtMTYgMTZ2MjA4YzAgOC44MzYgNy4xNjMgMTYgMTYgMTZ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+PHBhdGggZD0ibTE3NiA0NDhjOC44MzYgMCAxNi03LjE2NCAxNi0xNnYtMjA4YzAtOC44MzYtNy4xNjQtMTYtMTYtMTZzLTE2IDcuMTY0LTE2IDE2djIwOGMwIDguODM2IDcuMTYzIDE2IDE2IDE2eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+" /></a></div>
+                        </div> 
+
+                    </div>
+                      
+                </li>
+                
+                <li>
+                    <div id="aside_wrap">
+                        <div class="side_wrap">
+                            <div class="title"><h2>경로 비교</h2></div>
+                         
+                            <div id="account_list2">
+                                
+                                 <div id="id_list2" class="list-group"></div>
+                                    
+                                
+                            </div>
+                        </div>
+                        <div id="under_test">
+                            <div><a href="#"><img title="경로 비교" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDQ3Ny44NTkgNDc3Ljg1OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNDcyLjg2MywxNzUuNjYyTDM1My4zOTYsNTYuMTk1Yy02LjY2Ni02LjY2NC0xNy40NzItNi42NjItMjQuMTM2LDAuMDA0Yy0zLjE5OSwzLjItNC45OTYsNy41MzgtNC45OTcsMTIuMDYzdjUxLjIgICAgSDIwNC43OTZjLTkuNDI2LDAtMTcuMDY3LDcuNjQxLTE3LjA2NywxNy4wNjdjMCw5LjQyNiw3LjY0MSwxNy4wNjcsMTcuMDY3LDE3LjA2N0gzNDEuMzNjOS40MjYsMCwxNy4wNjctNy42NDEsMTcuMDY3LTE3LjA2NyAgICBWMTA5LjQ2bDc4LjI2OCw3OC4yNjhsLTc4LjI2OCw3OC4yNjh2LTI3LjA2OGMwLTkuNDI2LTcuNjQxLTE3LjA2Ny0xNy4wNjctMTcuMDY3SDE1My41OTZ2LTUxLjIgICAgYy0wLjAwMi05LjQyNi03LjY0NS0xNy4wNjUtMTcuMDctMTcuMDYzYy00LjUyNCwwLjAwMS04Ljg2MywxLjc5OC0xMi4wNjMsNC45OTdMNC45OTcsMjc4LjA2MiAgICBjLTYuNjYzLDYuNjY1LTYuNjYzLDE3LjQ2OCwwLDI0LjEzMmwxMTkuNDY3LDExOS40NjdjMy4yLDMuMjAxLDcuNTQsNSwxMi4wNjYsNS4wMDFjMi4yNDMsMC4wMDcsNC40NjYtMC40MzQsNi41MzYtMS4yOTcgICAgYzYuMzc2LTIuNjQ0LDEwLjUzMi04Ljg2NywxMC41My0xNS43N3YtNTEuMmgxMTkuNDY3YzkuNDI2LDAsMTcuMDY3LTcuNjQxLDE3LjA2Ny0xNy4wNjdzLTcuNjQxLTE3LjA2Ny0xNy4wNjctMTcuMDY3SDEzNi41MyAgICBjLTkuNDI2LDAtMTcuMDY3LDcuNjQxLTE3LjA2NywxNy4wNjd2MjcuMDY4bC03OC4yNjgtNzguMjY4bDc4LjI2OC03OC4yNjh2MjcuMDY4YzAsOS40MjYsNy42NDEsMTcuMDY3LDE3LjA2NywxNy4wNjdoMTg3LjczMyAgICB2NTEuMmMwLjAwMiw5LjQyNiw3LjY0NSwxNy4wNjUsMTcuMDcsMTcuMDYzYzQuNTI0LTAuMDAxLDguODYzLTEuNzk4LDEyLjA2My00Ljk5N2wxMTkuNDY3LTExOS40NjcgICAgQzQ3OS41MjUsMTkzLjEyOSw0NzkuNTI1LDE4Mi4zMjYsNDcyLjg2MywxNzUuNjYyeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=" /></a></div>
+                            <div><a href="#"><img title="초기화" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ5My44MTUsNzAuNjI5Yy0xMS4wMDEtMS4wMDMtMjAuNzMsNy4xMDItMjEuNzMzLDE4LjEwMmwtMi42NSwyOS4wNjlDNDI0LjQ3Myw0Ny4xOTQsMzQ2LjQyOSwwLDI1NiwwICAgIEMxNTguNzE5LDAsNzIuOTg4LDU1LjUyMiwzMC40MywxMzguODU0Yy01LjAyNCw5LjgzNy0xLjEyMiwyMS44ODQsOC43MTUsMjYuOTA4YzkuODM5LDUuMDI0LDIxLjg4NCwxLjEyMywyNi45MDgtOC43MTUgICAgQzEwMi4wNyw4Ni41MjMsMTc0LjM5Nyw0MCwyNTYsNDBjNzQuMzc3LDAsMTQxLjQ5OSwzOC43MzEsMTc5Ljk1Myw5OS40MDhsLTI4LjUxNy0yMC4zNjdjLTguOTg5LTYuNDE5LTIxLjQ4LTQuMzM3LTI3Ljg5OSw0LjY1MSAgICBjLTYuNDE5LDguOTg5LTQuMzM3LDIxLjQ3OSw0LjY1MSwyNy44OTlsODYuNDc1LDYxLjc2MWMxMi42NzQsOS4wMzUsMzAuMTU1LDAuNzY0LDMxLjU0MS0xNC40NTlsOS43MTEtMTA2LjUzICAgIEM1MTIuOTE5LDgxLjM2Miw1MDQuODE1LDcxLjYzMiw0OTMuODE1LDcwLjYyOXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3Mi44NTUsMzQ2LjIzOGMtOS44MzgtNS4wMjMtMjEuODg0LTEuMTIyLTI2LjkwOCw4LjcxNUM0MDkuOTMsNDI1LjQ3NywzMzcuNjAzLDQ3MiwyNTYsNDcyICAgIGMtNzQuMzc3LDAtMTQxLjQ5OS0zOC43MzEtMTc5Ljk1My05OS40MDhsMjguNTE3LDIwLjM2N2M4Ljk4OSw2LjQxOSwyMS40NzksNC4zMzcsMjcuODk5LTQuNjUxICAgIGM2LjQxOS04Ljk4OSw0LjMzNy0yMS40NzktNC42NTEtMjcuODk5bC04Ni40NzUtNjEuNzYxYy0xMi41MTktOC45NDQtMzAuMTQxLTAuOTIxLTMxLjU0MSwxNC40NTlsLTkuNzExLDEwNi41MyAgICBjLTEuMDAzLDExLDcuMTAyLDIwLjczLDE4LjEwMSwyMS43MzNjMTEuMDE0LDEuMDAxLDIwLjczMS03LjExMiwyMS43MzMtMTguMTAybDIuNjUtMjkuMDY5Qzg3LjUyNyw0NjQuODA2LDE2NS41NzEsNTEyLDI1Niw1MTIgICAgYzk3LjI4MSwwLDE4My4wMTItNTUuNTIyLDIyNS41Ny0xMzguODU0QzQ4Ni41OTQsMzYzLjMwOSw0ODIuNjkyLDM1MS4yNjIsNDcyLjg1NSwzNDYuMjM4eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=" /></a></div>
+                        </div>
+                    </div>
+                    
+                </li>
+                <li>
+                    <div id="aside_wrap">
+                        <div class="side_wrap">
+                            <div class="title"><h2>설정</h2></div>
+                            <!-- <div class="menu_close"><span>X</span></div> -->
+                        </div>
+        
+                    </div>
+                </li>
+            </ul>
+        </div> 
+         
+
+        <!-- side menu -->
+
+        <div id="map"></div>
+
+
+        <div id="dd" class="modal_wrap">
+            <span>X</span>
+            <div class="close"></div>
+            <div id="modal">
+               
+                <span>DRAG & DROP</span>
+                <!-- <input type="file" id="file"> -->
+                <div class="filebox"> <input class="upload-name" value="파일명" disabled="disabled"> <label for="ex_filename">파일선택</label> <input type="file" id="ex_filename" class="upload-hidden"> </div>
+            </div>
+            
+        </div>
+
+        <div id="dw" class="modal_wrap">
+            <div class="close"></div>
+            <span>X</span>
+            <div id="modal">
+                <input type="search">
+            </div>
+            
+        </div>
+
+        <div id="op" class="modal_wrap">
+            <span>X</span>
+            <div class="close"></div>
+            <div id="modal">
+                <input type="search">
+            </div>
+            
+        </div>
+
+        <div id="rs" class="modal_wrap">
+            <div class="close"></div>
+            <span>X</span>
+            <!-- <div id="modal">
+              
+            </div> -->
+            
+        </div>
+    </div>
+
+<div id="sub_acc_result"></div>
+<script>
+$("#add_new_subacc_btn").on('click', function(){
+  var new_subacc = $("#new_subacc_input").val();
+  var data = "subacc="+new_subacc;
+  $.ajax({
+    type: "POST",
+    url: "./php/add_subacc.php",
+    data: data,
+    success: function(e){
+      $('#sub_acc_result').html(e);
+      addNewSubaccItem(); // func 1-1
+
+	  //$('.edit_box').css('display', 'none');
+      //$("#li_"+id).fadeOut(1000);
+    }
+  })
+});
+
+function addNewSubaccItem() { // func 1-1
+    var input = document.getElementById('new_subacc_input');
+    var list1 = document.getElementById('id_list');
+    var list2 = document.getElementById('id_list2');
+
+    var temp = document.createElement('span');
+    temp.setAttribute("class", "list-group-item");
+    temp.setAttribute("id", "span");
+    temp.innerHTML = input.value;
+    //temp.innerHTML += "<button style='float: right;' class='btn btn-outline-secondary' type='button' onclick='remove("+cnt+")'>-</button>";
+    list1.appendChild(temp);
+    list2.appendChild(temp);
+
+    input.value = '';
+}
+</script>
+<div id="place_result"></div>
+</body>
+</html>

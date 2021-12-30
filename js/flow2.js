@@ -134,7 +134,7 @@ $(function(){
 const add_textbox = () => {
     const adding = document.getElementById("place");
     const newP = document.createElement('p');
-    newP.innerHTML = '<div class="box_place"><input type="search" class="place2" placeholder="주소" /><span class="more">···</span><span class="m_menu"><span class="set_arrival">도착시각 설정</span><span class="set_stay">체류시간 설정</span><span>즐겨찾기 등록</span><span>삭제</span></span><input type="tel" class="number" placeholder="핸드폰 번호" /><input type="text" class="memo" placeholder="메모" /><input type="hidden" class="prev_place2" /><input type="hidden" class="x_coord" /><input type="hidden" class="y_coord" /></div>';
+    newP.innerHTML = '<div class="box_place"><div class="order_num"><h4>1</h4></div><input type="search" class="place2" placeholder="주소" /><span class="more">···</span><span class="m_menu"><span class="set_arrival">도착시각 설정</span><span class="set_stay">체류시간 설정</span><span>즐겨찾기 등록</span><span>삭제</span></span><input type="tel" class="number" placeholder="핸드폰 번호" /> <div class="eta">도착 예정 시간 : <span>오전 00:00</span></div><input type="text" class="memo" placeholder="메모" /><input type="hidden" class="prev_place2" /><input type="hidden" class="x_coord" /><input type="hidden" class="y_coord" /></div>';
     adding.appendChild(newP);
 } // onclick="remove(this)"
 const remove = (obj) => {

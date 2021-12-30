@@ -240,23 +240,9 @@ nav li span {
 }
 
 .icon-contacts {
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAyNCAyNCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij4gICAgPHBhdGggZD0iTSA2IDIgQyA0Ljg5NyAyIDQgMi44OTcgNCA0IEwgNCAyMCBDIDQgMjEuMTAzIDQuODk3IDIyIDYgMjIgTCAxOCAyMiBDIDE5LjEwMyAyMiAyMCAyMS4xMDMgMjAgMjAgTCAyMCA0IEMgMjAgMi44OTcgMTkuMTAzIDIgMTggMiBMIDYgMiB6IE0gNiA0IEwgMTggNCBMIDE4IDIwIEwgNiAyMC4wMDE5NTMgTCA2IDQgeiBNIDEyIDYgQyAxMC4zMTggNiA5IDcuMzE3IDkgOSBDIDkgMTAuNjgzIDEwLjMxOCAxMiAxMiAxMiBDIDEzLjY4MiAxMiAxNSAxMC42ODMgMTUgOSBDIDE1IDcuMzE3IDEzLjY4MiA2IDEyIDYgeiBNIDEyIDggQyAxMi41OCA4IDEzIDguNDIxIDEzIDkgQyAxMyA5LjU3OSAxMi41OCAxMCAxMiAxMCBDIDExLjQyIDEwIDExIDkuNTc5IDExIDkgQyAxMSA4LjQyMSAxMS40MiA4IDEyIDggeiBNIDEyIDEzIEMgOS4xNDkgMTMgNyAxNC40NTU3NjYgNyAxNi4zODQ3NjYgTCA3IDE4IEwgMTcgMTggTCAxNyAxNi4zODQ3NjYgQyAxNyAxNC40NTU3NjYgMTQuODUxIDEzIDEyIDEzIHogTSAxMiAxNSBDIDEzLjQ3IDE1IDE0LjQ4OTUxNiAxNS41MDQgMTQuODUzNTE2IDE2IEwgOS4xNDY0ODQ0IDE2IEMgOS41MDk0ODQ0IDE1LjUwNCAxMC41MyAxNSAxMiAxNSB6Ij48L3BhdGg+PC9zdmc+")
+  background: url("https://img.icons8.com/material-outlined/48/000000/user-male-circle.png")
     50% 50% no-repeat;
   background-size: 50%;
-}
-
-.icon-contacts span {
-  display: none;
-  color: #fff;
-  font-weight: 500;
-}
-
-.icon-contacts:hover {
-  background: #71d4b0;
-}
-.icon-contacts:hover > span {
-  display: inline;
-  color: #fff;
 }
 
 .icon-map {
@@ -265,16 +251,36 @@ nav li span {
   background-size: 50%;
 }
 
-.icon-map span {
+.icon-compare {
+  background: url("https://img.icons8.com/material-outlined/48/000000/point-objects.png")
+    50% 50% no-repeat;
+  background-size: 50%;
+}
+
+.icon-setting {
+  background: url("https://img.icons8.com/material-outlined/48/000000/settings--v1.png")
+    50% 50% no-repeat;
+  background-size: 50%;
+}
+
+.icon-contacts span,
+.icon-map span,
+.icon-compare span,
+.icon-setting span {
   display: none;
-  color: #fff;
   font-weight: 500;
 }
 
-.icon-map:hover {
+.icon-contacts:hover,
+.icon-map:hover,
+.icon-compare:hover,
+.icon-setting:hover {
   background: #71d4b0;
 }
-.icon-map:hover > span {
+.icon-contacts:hover > span,
+.icon-map:hover > span,
+.icon-compare:hover > span,
+.icon-setting:hover > span {
   display: inline;
   color: #fff;
 }
@@ -469,6 +475,25 @@ nav li span {
   display: inline;
 }
 
+.eta {
+  float: right;
+  width: 150px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 5px;
+  color: #06a66c;
+}
+
+.order_num {
+  position: relative;
+  width: 50px;
+  height: 10px;
+  left: 5px;
+  top: 10px;
+  font-size: 20px;
+}
+
 /* Chrome, Safari, Edge, Opera - */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -607,7 +632,7 @@ input[type="number"] {
 
 .box_place {
   position: relative;
-  height: 110px;
+  height: 130px;
 }
 #add:hover {
   background-color: #2d2d2d;
@@ -891,7 +916,6 @@ input[type="tel"] {
   border-radius: 6px;
   border: 0;
   outline: 0;
-  display: block;
 }
 
 #id_list2 {
